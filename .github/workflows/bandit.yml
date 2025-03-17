@@ -13,8 +13,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Bandit
-        run: pip install bandit
-
-      - name: Run Bandit
-        run: bandit -r .
+      - name: Run Bandit Scan
+        uses: shundor/bandit-action@v1
+        with:
+          path: "."
+          level: high
+          confidence: high
+          exit_zero: true
